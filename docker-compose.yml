@@ -1,0 +1,32 @@
+version: '3'
+services:
+    karbo-node-service:
+        env_file: .env
+        container_name: karbo-node-service
+        ports:
+        - "$BIND_ADDRESS4:32347:32347"
+        - "$BIND_ADDRESS4:32348:32348"
+        # Uncomment only if you're know what you're doing
+        # - "$BIND_ADDRESS6:32347:32347"
+        # - "$BIND_ADDRESS6:32348:32348"
+        deploy:
+            resources:
+                limits:
+                    cpus: '$CPU_ALLOC'
+                    memory: $MEM_ALLOC
+            restart_policy:
+                condition: always
+        image: "looongcat/karbo-fullnode:$VERSION"
+        volumes:
+        - "$BLOCKCHAIN_PATH:/home/karbo/.karbowanec"
+        command:
+        - "--fee-address=$FEE_ADDRESS"
+        
+    karbo-blockchain-preloader:
+        env_file: .env
+        container_name: karbo-bc-preloader
+        build:
+            context: ./
+            dockerfile: ./bc_preloader_dockerfile
+        volumes:
+        - "$BLOCKCHAIN_PATH:/tmp"

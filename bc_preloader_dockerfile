@@ -1,0 +1,10 @@
+FROM alpine:latest
+
+VOLUME ["/tmp"]
+
+WORKDIR /tmp
+RUN wget https://bootstrap.krbnodes.pp.ua/blockchain-$(date "+%Y-%m-%d").tar.gz &&\
+	tar -xzvf blockchain-$(date "+%Y-%m-%d").tar.gz -C ./  &&\
+	rm -f blockchain-$(date "+%Y-%m-%d").tar.gz
+
+CMD sleep 1s
