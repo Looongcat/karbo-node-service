@@ -1,4 +1,4 @@
-version: '3'
+version: '2.2'
 services:
     karbo-node-service:
         env_file: .env
@@ -9,13 +9,9 @@ services:
         # Uncomment only if you're know what you're doing
         # - "$BIND_ADDRESS6:32347:32347"
         # - "$BIND_ADDRESS6:32348:32348"
-        deploy:
-            resources:
-                limits:
-                    cpus: '$CPU_ALLOC'
-                    memory: $MEM_ALLOC
-            restart_policy:
-                condition: always
+        cpu_count: '$CPU_ALLOC'
+        mem_limit: $MEM_ALLOC
+        restart: always
         image: "looongcat/karbo-fullnode:$VERSION"
         volumes:
         - "$BLOCKCHAIN_PATH:/home/karbo/.karbowanec"
