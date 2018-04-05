@@ -8,10 +8,8 @@ Script package for docker-compose which provides [karbo](https://karbo.io/en) (K
 2. Clone that repository
 3. Create directory in your host which will store blockchain
 4. Edit .env file for setting your optimal preferences
-5. *Optional* download blockchain bootstrap with next command:
-... `docker-compose run karbo-blockchain-preloader`
-6. Run your node with next command:
-... `docker-compose up -d karbo-node-service`
+5. *Optional* download blockchain bootstrap with next command: `docker-compose run karbo-blockchain-preloader`
+6. Run your node with next command: `docker-compose up -d karbo-node-service`
 
 ## Usage
 
