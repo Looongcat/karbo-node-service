@@ -29,6 +29,12 @@ Script package for docker-compose which provides [karbo](https://karbo.io/en) (K
 2. `docker-compose pull`
 3. `docker-compose up -d karbo-node-service`
 
+### Set up cron for automatic update
+1. `sudo crontab -e`
+2. Add new string to your crontab: `cd *<path to your docker-compose.yml>* && docker-compose pull && docker-compose up -d karbo-node-service`
+3. Save it
+4. `sudo /etc/init.d/cron reload`
+
 ## License
 
 See LICENSE file
