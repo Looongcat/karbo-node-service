@@ -1,3 +1,6 @@
+## Attention!
+This repository was deprecated and is no longer maintained, for newer version please go to https://github.com/Karbovanets/karbo-cli-docker
+
 # karbo-node-service
 
 Script package for docker-compose which provides [karbo](https://karbo.io/en) (KRB) master node as a service.
